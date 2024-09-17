@@ -18,7 +18,7 @@ BLOCKCHAIN_MP = {
     42161: "arbitrum",
     43114: "avalanche"
 }
-src_db_files = glob.glob(os.path.join("usccheck/analysis/dappproject",
+src_db_files = glob.glob(os.path.join("evocon/analysis/dappproject",
                          "dappproject-*.json"))
 source_code_db_map = dict()
 
@@ -40,7 +40,7 @@ def load_contract_abi(chain, impl):
         return None
     if chain == "ethereum":
         abi_file = os.path.join(
-            "/Users/yeliu/Projects/USCCheck/usccheck/contract_abi", impl.lower()+".abi.json")
+            "evocon/contract_abi", impl.lower()+".abi.json")
         if os.path.exists(abi_file):
             arr = abi_found.get(chain, set())
             arr.add(impl)
@@ -222,7 +222,7 @@ def detect_for_chain_dapp(db):
 
     # Output the results to a file
     plt.savefig(
-        'usccheck/analysis/dappproject/ABI_breaking_changes-{0}.pdf'.format(chain_name), format='pdf')
+        'evocon/analysis/dappproject/ABI_breaking_changes-{0}.pdf'.format(chain_name), format='pdf')
 
     # close the plot
     plt.close()
